@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js</title>
+</head>
+<body>
+<div id="demo">
+    <p>
+        <input type="text" v-model="message" />
+    </p>
+    <p>
+        <button v-on:click="green">green</button>
+    </p>
+    <p>
+        <button v-on:click="red('hello world')">red</button>
+    </p>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+var app = new Vue({
+    el: '#demo',
+    data: {
+        message: '请输入内容',
+        b: false,
+        c: true
+    },
+    methods: {
+        green: function(){
+            console.log(this.message + this.b);
+        } ,
+        red: function(msg){
+            console.log(msg)
+        }
+    }
+})
+    
+</script>
+</body>
+</html>
