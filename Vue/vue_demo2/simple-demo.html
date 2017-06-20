@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-			<!--<fieldset>
+			<fieldset>
 				<legend>
 					Create New Person
 				</legend>
@@ -32,7 +32,7 @@
 					<label></label>
 					<button @click="createPerson">Create</button>
 				</div>
-		</fieldset>-->
+		</fieldset>
 		<table>
 			<thead>
 				<tr>
@@ -44,10 +44,12 @@
 			</thead>
 			<tbody>
 				<tr v-for="(person, index) in people">
-					<td>{{ person.name }}</td>
-					<td>{{ person.age }}</td>
-					<td>{{ person.sex }}</td>
-					<td :class="'text-center'"><button @click="deletePerson(index)">Delete</button></td>
+					<td v-text="person.name" ><!--{{ person.name }}--></td>
+					<td v-text="person.age"><!--{{ person.age }}--></td>
+					<td v-text="person.sex"><!--{{ person.sex }}--></td>
+					<td :class=" 'text-center' ">
+						<button @click="deletePerson(index)">Delete</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -57,7 +59,12 @@
     var app = new Vue({
         el: '#app',
         data: {
-            person: [
+			newPerson: {
+				name: '',
+				age: 0,
+				sex: 'Male'
+			},
+            people: [
                 {
                     name: '张三',
                     age: 30,
@@ -77,8 +84,13 @@
         },
         methods: {
             createPerson: function(){
-
-            }
+				this.people.unshift(this.newPerson);
+				// 添加完newPerson对象后，重置newPerson对象
+				this.newPerson = {name: '', age: 0, sex: 'Male'}
+            },
+			deletePerson: function(index){
+				this.people.splice(index, 1);
+			}
         }
     })
     </script>
