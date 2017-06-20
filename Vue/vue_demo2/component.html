@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component</title>
+</head>
+<body>
+<div id="app">
+    <app-component></app-component>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+// 全局组件
+// Vue.component('appComponent', {
+//     template: '<h1>hhhhhhhhhh</h1>'
+// });
+new Vue({
+    el: '#app',
+    components: {
+        'appComponent': {
+            template: '<h1>这是H1标签个梵蒂</h1>'
+        }
+    }
+})
+</script>
+</body>
+</html>

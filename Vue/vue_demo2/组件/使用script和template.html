@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app1">
+    <my-component></my-component>
+</div>
+<script type="text/x-template" id="my">
+    <h1>这家鹅鹅鹅电饭锅地方</h1>
+</script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+// Vue.component('')
+new Vue({
+    el: '#app1',
+    components: {
+        'my-component': {
+            template: '#my'
+        }
+    }
+})
+</script>
+</body>
+</html>
