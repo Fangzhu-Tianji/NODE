@@ -8,23 +8,21 @@
 </head>
 <body>
 <div id="app1">
-    <parent-component></parent-component>
+    <my-component></my-component>
 </div>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script>
-var child = Vue.extend({
-    template: '<h1>这是h1标签，hello world！</h1>'
-});
-var parent = Vue.extend({
-    template: '<div><p>This is a pTagfgdf</p><child-component></child-component></div>',
-    components: {
-        'child-component': child
+Vue.component('my-component', {
+    template: '<h1>这是H1标签1</h1>',
+    data: function(){
+        return {
+            a: 1
+        }
     }
 });
-Vue.component('parent-component', parent);
 new Vue({
     el: '#app1'
-})
+});
 </script>
 </body>
 </html>

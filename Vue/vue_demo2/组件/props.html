@@ -8,19 +8,28 @@
 </head>
 <body>
 <div id="app1">
-    <my-component></my-component>
+    <input type="text" v-model="name">
+    <my-component v-bind:myname.sync="name" v-bind:myage="age"></my-component>
 </div>
-<script type="text/x-template" id="my">
-    <h1>这家鹅鹅鹅电饭锅地方</h1>
-</script>
+<template id="myComponent">
+    <div>
+        <h1>这是props-myComponent</h1>
+        <p>{{myname}}</p>
+        <input type="text" v-model="myname">
+    </div>
+</template>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script>
-// Vue.component('')
 new Vue({
     el: '#app1',
+    data: {
+        name: 'zch',
+        age: 18
+    },
     components: {
         'my-component': {
-            template: '#my'
+            template: '#myComponent',
+            props: ['myname', 'myage']
         }
     }
 })
