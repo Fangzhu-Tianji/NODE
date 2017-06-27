@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <parent-component></parent-component>
+</div>
+<template id="parent11">
+    <div>
+        <child-component1></child-component1>
+        <child-component2></child-component2>
+        <button v-on:click="show11">show</button>
+    </div>
+</template>
+<template id="child1">
+    <h1>This is child1</h1>
+</template>
+<template id="child2">
+    <h2>This is child2</h2>
+</template>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+Vue.component('parent-component',{
+    template: '#parent11',
+    components: {
+        'child-component1': {
+            template: '#child1',
+            data: function(){
+                return {
+                    msg: 'child1 component'
+                }
+            }
+        },
+        'child-component2': {
+            template: '#child2',
+            data: function(){
+                return {
+                    msg: 'child2 component'
+                }
+            }
+        }
+    },
+    methods: {
+        'show11': function(){
+            console.log(this.$children);
+            console.log(this.$children.length);
+            console.log(typeof this.$children);
+            for(var i=0; i<this.$children.length; i++){
+                alert(this.$children[i].msg)
+            }
+        }
+    }
+});
+new Vue({
+    el: '#app'
+})
+</script>
+</body>
+</html>

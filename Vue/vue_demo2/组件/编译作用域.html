@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app1">
+    <componentt v-show="display"></componentt>
+</div>
+<template id="t-componentt">
+    <div>
+        <h1 v-html="message" v-show="display">这是H1标签</h1>
+        <p v-html="mp" v-on:click="show(123456789)">这是P标签里的内容</p>
+    </div>
+</template>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+new Vue({
+    el: '#app1',
+    data: {
+        display: true
+    },
+    components: {
+        componentt: {
+            template: '#t-componentt',
+            data: function() {
+                return {
+                    message: 'zhehiH1biaoqian',
+                    mp: 'zheshiPbiaoqianlideneirong',
+                    display: false
+                }
+            },
+            methods: {
+                show: function(res) {
+                    alert(res);
+                }
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>
