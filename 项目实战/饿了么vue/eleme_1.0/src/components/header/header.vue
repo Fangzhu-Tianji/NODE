@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="bulletn-wrapper">
+    <div class="bulletn-wrapper"  @click="showDetail">
       <span class="bulletn-title"></span>
       <span class="bulletn-text">{{seller.bulletin}}</span>
       <i class="icon">></i>
@@ -37,10 +37,11 @@
           <div class="star-wrapper">
             <star :size="48" :score="seller.score"></star>
           </div>
+          <p>这是P标签名</p>
         </div>
       </div>
       <div class="detail-close">
-        <i class="icon">×</i>
+        <i class="icon"  @click="hideDetail">×</i>
       </div>
     </div>
   </div>
@@ -63,13 +64,16 @@
     methods: {
       showDetail () {
         this.detailShow = true;
+      },
+      hideDetail () {
+        this.detailShow = false;
       }
     },
     created () {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
     },
     components: {
-      star
+      'star': star
     }
   };
 </script>
