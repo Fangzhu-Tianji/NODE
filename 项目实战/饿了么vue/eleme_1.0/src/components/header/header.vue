@@ -37,7 +37,11 @@
           <div class="star-wrapper">
             <star :size="48" :score="seller.score"></star>
           </div>
-          <p>这是P标签名</p>
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">优惠信息</div>
+            <div class="line"></div>
+          </div>
         </div>
       </div>
       <div class="detail-close">
@@ -234,6 +238,20 @@
           margin-top: 18px
           padding: 2px 0
           text-align: center
+        .title
+          margin: 28px auto 24px auto
+          width: 80%
+          display: flex
+          .line
+           flex: 1
+           border-bottom: 1px solid rgba(255,255,255,0.2)
+           position: relative
+           top: -7px
+          .text
+            font-size: 14px
+            font-weight: 700
+            color: #fff
+            padding: 0 12px
     .detail-close
       position: relative
       width: 100%
