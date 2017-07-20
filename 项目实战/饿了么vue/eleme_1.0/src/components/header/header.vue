@@ -42,6 +42,12 @@
             <div class="text">优惠信息</div>
             <div class="line"></div>
           </div>
+          <ul v-if="seller.supports" class="supports">
+            <li class="support-item" v-for="item in seller.supports">
+              <span class="icon" :class="classMap[item.type]"></span>
+              <span class="text">{{item.description}}</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="detail-close">
@@ -252,6 +258,22 @@
             font-weight: 700
             color: #fff
             padding: 0 12px
+        .supports
+          wisth: 80%
+          margin: 0 auto
+          .support-item
+            padding: 0 12px
+            margin-bottom: 12px
+            font-size: 0
+            .icon
+              display: inline-block
+              width: 16px
+              height: 16px
+              margin-right: 6px
+            .text
+              font-size: 12px
+              line-height: 16px
+              color: #fff
     .detail-close
       position: relative
       width: 100%
