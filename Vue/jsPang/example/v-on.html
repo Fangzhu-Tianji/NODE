@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on</title>
+  <style>
+  .wrap {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+  }
+  </style>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    本场积分：{{mark}}
+    <button v-on:click="jia">增加</button>
+    <button v-on:click="jian">减少</button>
+    <div class="wrap" @mouseover="mouseover"></div>
+  </div>
+  <script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      mark: 0
+    },
+    methods: {
+      jia: function(){
+        this.mark ++;
+      },
+      jian: function(){
+        this.mark --;
+      },
+      mouseover: function(e){
+        console.log(e);
+        console.log('mouseover')
+      }
+    }
+  })
+  </script>
+</body>
+</html>
