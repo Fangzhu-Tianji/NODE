@@ -19,13 +19,15 @@
     本场积分：{{mark}}
     <button v-on:click="jia">增加</button>
     <button v-on:click="jian">减少</button>
+    <input type="text" v-on:keyup.84="onEnter" v-model="secondCount">
     <div class="wrap" @mouseover="mouseover"></div>
   </div>
   <script>
   var app = new Vue({
     el: '#app',
     data: {
-      mark: 0
+      mark: 0,
+      secondCount: ''
     },
     methods: {
       jia: function(){
@@ -37,6 +39,9 @@
       mouseover: function(e){
         console.log(e);
         console.log('mouseover')
+      },
+      onEnter:function(){
+         this.mark=this.mark+parseInt(this.secondCount);
       }
     }
   })
