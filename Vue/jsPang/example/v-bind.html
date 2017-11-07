@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="urlImg">点击</a>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            urlImg: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510059881224&di=a379b1d904deab31ca1faa73134f8876&imgtype=0&src=http%3A%2F%2Fimg.bbs.cnhubei.com%2Fforum%2Fday_100420%2F1004201713c40c2b20c26e94fb.jpg'
+        }
+    })
+    </script>    
+</body>
+</html>

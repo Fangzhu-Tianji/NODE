@@ -56,6 +56,9 @@
         </select>
         <span>Selected: {{ selected }}</span>
         </div>
+        <h1>值绑定</h1>
+        <input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b">
+        <span>复选框: {{ toggle }}</span>
     </div>
     <script>
     var app = new Vue({
@@ -66,7 +69,10 @@
             checked: [],
             picked: '',
             three: '',
-            selected: '2'
+            selected: '2',
+            toggle: '选中',
+            a: '选中',
+            b: '取消'
         }
     })
     </script>
