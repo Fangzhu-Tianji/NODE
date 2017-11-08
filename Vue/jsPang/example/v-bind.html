@@ -6,16 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>v-bind</title>
     <script src="../assets/js/vue.js"></script>
+    <style>
+    .img {
+        width: 100px;
+        height: 120px;
+    }
+    .color {
+        color: red;
+    }
+    .font {
+        font-size: 30px;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
+        <img v-bind:class="className1" v-bind:src="urlImg" v-bind:data-img="urlImg" alt="">
+        <img :src="urlImg" :data-img="urlImg" alt="">
         <a v-bind:href="urlImg">点击</a>
+        <a v-bind:href="urlImg" v-bind:class="{color: isOk}">点击</a>
+        <a v-bind:href="urlImg" v-bind:class="[className2,className3]">点击</a>
+        <a v-bind:href="urlImg" :style="{color:gold, fontSize: fontSize}">点击</a>
+        <a v-bind:href="urlImg" :style="styleObj">点击</a>
     </div>
     <script>
     var app = new Vue({
         el: '#app',
         data: {
-            urlImg: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510059881224&di=a379b1d904deab31ca1faa73134f8876&imgtype=0&src=http%3A%2F%2Fimg.bbs.cnhubei.com%2Fforum%2Fday_100420%2F1004201713c40c2b20c26e94fb.jpg'
+            urlImg: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510059881224&di=a379b1d904deab31ca1faa73134f8876&imgtype=0&src=http%3A%2F%2Fimg.bbs.cnhubei.com%2Fforum%2Fday_100420%2F1004201713c40c2b20c26e94fb.jpg',
+            className1: 'img',
+            className2: 'color',
+            className3: 'font',
+            gold: 'gold',
+            fontSize: "40px",
+            isOk: true,
+            styleObj: {
+                color: 'red',
+                fontSize: '50px'
+            }
         }
     })
     </script>    
