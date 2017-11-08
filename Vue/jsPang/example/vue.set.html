@@ -10,12 +10,16 @@
 <body>
     <div id="app">
         <p>{{message}}</p>
+        <ul v-for="item in goods">
+            <li>{{item}}</li>
+        </ul>
         <button @click="update">点击</button>
         <button onclick="changes()">改变</button>
     </div>
     <script>
         var data = {
-            message: 3333
+            message: 3333,
+            goods: ['aaa', 'bbb', 'ccc']
         }
         var app = new Vue({
             el: '#app',
@@ -27,9 +31,10 @@
             }
         });
         function changes() {
-            data.message = 4444;
-            console.log(data)
-            console.log(typeof data)
+            // data.message = 4444;
+            // app.message = 5555;
+            // Vue.set(data, 'message', 6666)
+            Vue.set(data.goods, 1, 'iiii')
         }
     </script>
 </body>
