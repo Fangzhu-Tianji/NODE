@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mehods</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{a}}
+        <p>
+            <button @click="add(5,$event)">增加</button>
+        </p>
+        <p>
+            <zchs @click.native="add(5)"></zchs>
+        </p>
+    </div>
+    <button onclick="vm.add(5)">外部ADD</button>
+    <script>
+        var zch = {
+            template: '<button>组件ADD</button>'
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: 10
+            },
+            components: {
+                'zchs': zch
+            },
+            methods: {
+                add: function(num,event){
+                    this.a += num;
+                    console.log(event);
+                }
+            }
+        });
+        console.log(vm)
+    </script>
+</body>
+</html>

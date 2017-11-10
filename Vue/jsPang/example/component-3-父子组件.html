@@ -12,8 +12,19 @@
         <panda></panda>
     </div>
     <script>
+    var citys = {
+        template: `<p style="color:green">siCuan from China</p>`
+    }
     var pandaComponents = {
-        template:  `<div style="color:red">Panda from here</div>`
+        template:  `
+        <div>
+            <p style="color:red">Panda from here</p>
+            <city></city> 
+        </div>
+        `,
+        components: {
+            'city': citys
+        }
     }
     var app = new Vue({
         el: '#app',
