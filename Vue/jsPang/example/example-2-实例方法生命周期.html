@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="../assets/js/vue.js"></script>
+  <script src="../assets/js/jquery.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header></header>
+    </div>
+    <button onclick="destroy()">销毁</button>
+    <button onclick="upload()">更新</button>
+    <button onclick="tick()">数据修改</button>
+    <script>
+    var zch = Vue.extend({
+        template: '<div style="color:red">this is {{message}}</div>',
+        data: function() {
+            return {
+                message: 'Hello I"m zch'
+            }
+        },
+        mounted: function() {
+            console.log('mounted被创建')
+        }
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World'
+        },
+        mounted: function() {
+            console.log('mounted被全局创建')
+        },
+        destroyed: function() {
+            console.log('destroy被销毁');
+        },
+        updated: function() {
+            console.log('我被更新了')
+        }
+    })
+    new zch().$mount('header')
+    function destroy() {
+        app.$destroy();
+    }
+    function upload() {
+        app.$forceUpdate();
+    }
+    function tick(){
+        app.message="update message info ";
+        app.$nextTick(function(){
+            console.log('message更新完后我被调用了');
+        })
+    }
+    </script>
+</body>
+</html>
