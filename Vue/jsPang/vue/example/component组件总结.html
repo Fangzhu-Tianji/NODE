@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>component组件总结</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <panda v-bind:info="message"></panda>
+    </div>
+    <script>
+    var child = {
+        template: '<h4>这是子组件</h4>'
+    }
+    var pandas = {
+        template: `
+            <div>
+                <h3>这是H3标签 - {{info}}</h3>
+                <childs></childs>
+            </div>
+        `,
+        props: ['info'],
+        components: {
+            'childs': child
+        }
+    }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World'
+        },
+        components: {
+            'panda': pandas,
+        }
+    })
+    </script>
+</body>
+</html>
