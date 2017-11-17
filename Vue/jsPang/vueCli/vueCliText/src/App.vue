@@ -2,9 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
-      <router-link to="/">首页</router-link>
-      <router-link to="/hi">hi页面</router-link>
+      <router-link to="/">首页</router-link>|
+      <router-link :to="{name:'hellow/hi',params:{userName:'jsPang'}}">hi页面</router-link>|
+      <router-link :to="{name:'hellow/hi/hi1',params:{userName:'jsPang'}}">hi1页面</router-link>|
+      <router-link to="/hi/hi2">hi2页面</router-link>
     </div>
+    <p>{{ $route.name }}</p>
 
     <router-view/>
   </div>

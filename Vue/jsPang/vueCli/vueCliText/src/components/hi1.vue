@@ -1,17 +1,16 @@
 <template>
     <div>
         <h2>{{ msg }}</h2>
-        <router-view class="aaa"></router-view>
-        <!-- <p>{{ $route.params.userName }}</p> -->
+        <p>{{ $route.params.userName }}</p>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'hi',
+  name: 'hi1',
   data () {
     return {
-      msg: 'hi 欢迎光临！！'
+      msg: 'I am HI1 page'
     }
   }
 }
