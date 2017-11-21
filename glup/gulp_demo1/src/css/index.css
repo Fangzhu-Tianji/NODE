@@ -1,0 +1,16 @@
+.head {
+  width: 100px;
+}
+.head .content1 {
+  width: 200px;
+  height: 400px;
+  background: pink;
+}
+.footer {
+  width: 100px;
+}
+.footer .content1 {
+  width: 200px;
+  height: 400px;
+  background: pink;
+}
