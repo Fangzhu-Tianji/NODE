@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菁鲤汇-理财师PC管理端</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部 -->
+        <div class="layui-header header">
+            <div class="layui-main" style="margin-left:15px;">
+                <!-- logo -->
+                <a class="logo" href="/index.html">
+                    <img src="images/jlh.png" alt="菁鲤汇">
+                </a>
+                <!-- 水平导航 -->
+                <ul class="layui-nav top-nav-right">
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">
+                            <div id="linkname"></div>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd id="loginout">
+                                <a href="javascript:;">
+                                    退出登录
+                                </a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree left_menu_ul">
+                    <li class="layui-nav-item-title">
+                        <a href="javascript:;">产品管理555</a>
+                    </li>
+                    <li class="layui-nav-item first-item layui-this">
+                        <a href="./Product/product_nolook.html" target="main">
+                            <i class="iconfont">&#xe65f;</i>
+                            <cite>待审核产品</cite>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="./Product/product_nopass.html" target="main">
+                            <i class="iconfont">&#xe659;</i>
+                            <cite>未通过产品</cite>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主体 -->
+        <div class="layui-body iframe-container">
+            <iframe style="position:absolute;border:0;width:100%;height:100%;" class="admin-iframe" id="admin-iframe" name="main" src="./Product/product_nolook.html"></iframe>
+        </div>
+
+        <!-- 底部 -->
+        <div class="layui-footer footer">
+            <div class="layui-main">
+                <p style="font-family:'microfost yahei';">2015-2017 版权所有 © <a href="http://www.cst58.com" target="_blank">深圳市财视通互联网金融有限公司</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="lib/layui/layui.js"></script>
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

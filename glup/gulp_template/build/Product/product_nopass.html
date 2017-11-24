@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>财视通-待审核产品</title><meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"><meta name="renderer" content="webkit"><script src="../js/CssHead-5ee3d3b262.js?v=1.0"></script></head><body><div class="container-fluid larry-wrapper" id="main_product"><div class="panel panel-padding" style="margin-bottom:0;background-color:#f8f8f8"><form class="layui-form" id="search_form"><div class="layui-form-item search"><div class="layui-inline"><label class="layui-form-label">产品名称</label><div class="layui-input-inline"><input class="layui-input" name="productName" autocomplete="off" placeholder="产品名称"></div></div><div class="layui-inline"><label class="layui-form-label">产品分类</label><div class="layui-input-inline"><select id="ddcategoryID" name="categoryID"></select></div></div><div class="layui-inline"><label class="layui-form-label">销售状态</label><div class="layui-input-inline"><select id="ddProductStatusType" name="productStatusType"></select></div></div><div class="layui-inline"><label class="layui-form-label">创建时间</label><div class="layui-input-inline"><input type="text" class="layui-input start-date" name="publishTimeBeg" id="start_date" placeholder="开始时间" autocomplete="off"></div><div class="layui-input-inline"><input type="text" class="layui-input end-date" name="publishTimeEnd" id="end_date" placeholder="结束时间" autocomplete="off"></div></div><div class="layui-inline"><button lay-submit class="layui-btn" lay-filter="search">搜索</button></div></div></form></div><div class="panel panel-padding"><form class="layui-form"><div class="group-button"><button class="layui-btn layui-btn-small" lay-submit lay-filter="submits"><i class="layui-icon">&#xe62f;</i>重新提交审核</button> <a href="javascript:;" id="add_product" class="layui-btn layui-btn-small layui-btn-normal"><i class="layui-icon">&#xe609;</i>发布产品</a><div id="add_product_div" style="display:none;position:relative"></div></div><table id="table" class="layui-table" lay-even=""><thead><tr><th width="30"><input type="checkbox" lay-skin="primary" name="checkAll" lay-filter="checkAll"></th><th width="20">ID</th><th width="30">LOGO</th><th width="300">产品名称</th><th width="120">产品分类</th><th width="200">发行机构</th><th width="70">销售状态</th><th width="80">审核状态</th><th width="180">创建时间</th><th width="320">操作</th></tr></thead><tbody id="list"></tbody><tfoot><tr><td colspan="3">总条数<span id="PageSum" style="color:#FF5722"></span></td><td colspan="7"><div id="page"></div></td></tr></tfoot></table></form><textarea id="product_list" style="display: none">
+                    {for item in data.ResultList}
+                    <tr>
+                    <td><input type="checkbox" lay-skin="primary" name="${item.ProductID}" value="${item.ProductID}" lay-filter="checkOne"></td>
+                    <td>${item.ProductID}</td>
+                    <td>
+                        <div class="img">
+                            <img class="img-thumbnail" src="${G.DOMAIN.IMGS}${CM.EnumSysImageDir.FUNDLOGO}${item.FundLogo}" alt="...">
+                        </div>
+                    </td>       
+                    <td>${item.ProductName}</td>                 
+                    <td>${item.CategoryName}</td>
+                    <td>${item.FundName}</td>
+                    <td>${item.ProductStatusType}</td>
+                    <td>${item.StatusFlag}</td>
+                    <td>${item.CreateTimeStr}</td>
+                    <td>
+                        {if (item.ProductType == 1)||(item.ProductType == 2)||(item.ProductType == 3)||(item.ProductType == 4)||(item.ProductType == 5)||(item.ProductType == 6)}
+                        <a class="layui-btn layui-btn-mini" href="preview_1.html?id=${item.ProductID}&name=${item.CategoryName}&url=${window.location.href}"><i class="layui-icon">&#xe60a;</i>预览</a>
+                        <a class="layui-btn layui-btn-mini layui-btn-normal" href="product_edit_1.html?id=${item.ProductID}&ProductType=${item.ProductType}&name=${item.CategoryName}&key=${item.ProductKey}&url=${window.location.href}"><i class="layui-icon">&#xe639;</i>编辑</a>
+                        {elseif item.ProductType == 7}
+                        <a class="layui-btn layui-btn-mini" href="preview_2.html?id=${item.ProductID}&name=${item.CategoryName}&url=${window.location.href}"><i class="layui-icon">&#xe60a;</i>预览</a>
+                        <a class="layui-btn layui-btn-mini layui-btn-normal" href="product_edit_2.html?id=${item.ProductID}&ProductType=${item.ProductType}&name=${item.CategoryName}&key=${item.ProductKey}&url=${window.location.href}"><i class="layui-icon">&#xe639;</i>编辑</a>
+                        {elseif item.ProductType == 9}
+                        <a class="layui-btn layui-btn-mini" href="preview_3.html?id=${item.ProductID}&name=${item.CategoryName}&url=${window.location.href}"><i class="layui-icon">&#xe60a;</i>预览</a>
+                        <a class="layui-btn layui-btn-mini layui-btn-normal" href="product_edit_3.html?id=${item.ProductID}&ProductType=${item.ProductType}&name=${item.CategoryName}&key=${item.ProductKey}&url=${window.location.href}"><i class="layui-icon">&#xe639;</i>编辑</a>
+                        {/if}
+                        <a class="layui-btn layui-btn-mini layui-btn-danger odd_cancel" href="javascript:;" data-id="${item.ProductID}"><i class="layui-icon">&#xe62f;</i>重新提交审核</a>
+                        <a class="layui-btn layui-btn-mini layui-btn-normal LookCause" href="javascript:;" style="background:#5FB878"><i class="layui-icon">&#xe611;</i>查看原因</a>
+                        <input class="LookCausePop" type="hidden" value="${item.AuditReason}">
+                    </td>
+                    </tr>
+                    {/for}
+            </textarea>
+        </div>
+    </div>
+    
+    <script src="../js/ScriptFoot-b1dd34fad8.js?v=1.0"></script>
+    <script src="../js/Product/product_nopass-a9e78c2727.js?v=1.0"></script></body></html>

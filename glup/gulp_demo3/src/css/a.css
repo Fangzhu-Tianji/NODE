@@ -1,0 +1,20 @@
+.box {
+  width: 200px;
+  height: 300px;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  background: url(../images/banner-2.jpg?v=EAfYj8gJG0tcT81VbE4yEg%3D%3D);
+  margin: 20px;
+}
+.box .content {
+  width: 100px;
+  height: 100px;
+  background: red;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
