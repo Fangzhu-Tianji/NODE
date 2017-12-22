@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VUE</title>
+<style>
+	.fl {
+		float: left;
+	}
+	.wrap {
+		width: 1300px;
+		height: 500px;
+		margin: 0 auto;
+		background: pink;
+	}
+	.wrap .item {
+		width: 300px;
+	}
+	.pic {
+		width: 200px;
+		height: 100px;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+	<div class="wrap">
+		<h2>{{shuju.AchievementList.length}}</h2>
+		<h3 v-if="shuju.AchievementList.length<=1">隐藏</h3>
+		<div class="item fl" v-for="items in shuju.AchievementList">
+			<p>
+				<input v-model="items.TotalScale" type="text" placeholder="请输入">
+			</p>
+			<p>
+				<input v-model="items.ProductName" type="text" placeholder="请输入">
+			</p>
+			<p>
+				<input v-model="items.ProductRate" type="text" placeholder="请输入">
+			</p>
+		</div>
+	</div>
+	<button @click="add">增加</button>
+	<button @click="down">减少</button>
+	<button @click="submit">获取</button>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.9/vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			shuju: {
+				"AchievementList": [
+				    {
+				      "TotalScale": "sample string 1",
+				      "ProductName": "",
+				      "ProductRate": "sample string 3"
+				    },
+				    {
+				      "TotalScale": "sample string 11",
+				      "ProductName": "sample string 22",
+				      "ProductRate": "sample string 33"
+				    }
+				],
+				"ProductInfoList": [
+				    {
+				      "ProDirection": "sample string 1",
+				      "ProType": "sample string 2",
+				      "YearEarnings": "sample string 3",
+				      "InvestmentTime": "sample string 4"
+				    },
+				    {
+				      "ProDirection": "sample string 1",
+				      "ProType": "sample string 2",
+				      "YearEarnings": "sample string 3",
+				      "InvestmentTime": "sample string 4"
+				    }
+				],
+				"WeChat11": [
+					''
+				],
+				"Mobile": "sample string 7",
+			  	"Email": "sample string 8",
+			  	"WeChat": "sample string 9",
+			  	"EquipmentModel": ""
+			}
+		},
+		methods: {
+			add: function(){
+				this.shuju.AchievementList.push({
+					"TotalScale": "",
+			      	"ProductName": "",
+			      	"ProductRate": ""
+				})
+			},
+			down: function(){
+				if(this.shuju.AchievementList.length>1){
+					this.shuju.AchievementList.pop()
+				}
+			},
+			submit: function(){
+				// console.log(this.shuju.AchievementList);
+				// var a = this.shuju.AchievementList;
+				// for(x in a){
+				// 	for(y in a[x]){
+				// 		console.log(a[x][y]);
+				// 		if(a[x][y] == ""){
+				// 			console.log(333)
+				// 		}
+				// 	}
+				// }
+				for(x in this.shuju){
+					// console.log(this.shuju[x])
+					if(this.shuju[x] == ""){
+						console.log(999);
+					}
+					if(this.shuju[x].constructor == Array){
+						for(y in this.shuju[x]){
+							if(this.shuju[x][y] == ""){
+								console.log(666);
+							}
+							for(z in this.shuju[x][y]){
+								if(this.shuju[x][y][z] == ""){
+									console.log(333);
+								}
+							}
+						}
+					}
+				}
+				console.log(this.shuju);
+				console.log(this.shuju.AchievementList[0].TotalScale);
+				console.log(typeof this.shuju);
+			}
+		}
+	})
+</script>
+</body>
+</html>
