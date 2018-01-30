@@ -17,6 +17,13 @@
     .font {
         font-size: 30px;
     }
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+    .box img {
+        display: block;
+    }
     </style>
 </head>
 <body>
@@ -28,6 +35,9 @@
         <a v-bind:href="urlImg" v-bind:class="[className2,className3]">点击</a>
         <a v-bind:href="urlImg" :style="{color:gold, fontSize: fontSize}">点击</a>
         <a v-bind:href="urlImg" :style="styleObj">点击</a>
+        <div class="box" :data-box="urlImg" @click="box_click($event)">
+            <img :src="urlImg" alt="" :data-son="gold">
+        </div>
     </div>
     <script>
     var app = new Vue({
@@ -50,6 +60,12 @@
                 console.log(e)
                 console.log(e.target)
                 console.log(e.target.dataset.img)
+                console.log(e.currentTarget.dataset.img)
+            },
+            box_click: function(event) {
+                console.log(event);
+                console.log(event.currentTarget.dataset.box);
+                console.log(event.target.dataset.son);
             }
         }
     })
