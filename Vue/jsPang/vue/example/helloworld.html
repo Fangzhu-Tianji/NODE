@@ -22,6 +22,9 @@
   <div id="app">
     {{message}}
   </div>
+  <div id="app1">
+    {{message}}
+  </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
@@ -29,6 +32,11 @@
         message: 'Hello World -- 第三方水电费 Hello World 第三费 !!!!!!'
       }
     })
+    var app1 = new Vue({
+      data: {
+        message: 'this is message!!哈哈哈哈哈'
+      }
+    }).$mount('#app1');
   </script>
 </body>
 </html>

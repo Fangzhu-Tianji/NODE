@@ -12,6 +12,9 @@
         <h1>单行文本</h1>
         <p v-text="message"></p>
         <p>
+            <input type="text" v-bind:placeholder="message">
+        </p>
+        <p>
             <input type="text" v-model="message">
         </p>
         <p>
