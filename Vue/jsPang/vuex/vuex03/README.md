@@ -1,6 +1,6 @@
-# vuex02
+# vuex03
 
-> vuex02-Mutations修改状态-getters计算过滤操作
+> vuex03-state访问状态对象-Mutations修改状态-getters计算过滤操作（复习）
 
 ## Build Setup
 
