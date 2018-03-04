@@ -11,6 +11,8 @@
             <button @click="git">获取</button>
             <button @click="add(10)">简单+</button>
             <button @click="reduce">简单-</button>
+            <button @click="addAction">actions+</button>
+            <button @click="reduceAction">actions-</button>
         </div>
         <!-- <h3>{{countGet}}</h3> -->
     </div>
@@ -18,7 +20,7 @@
 
 <script>
 import store from '@/vuex/store'
-import {mapState,mapMutations,mapGetters} from 'vuex'
+import {mapState,mapMutations,mapGetters,mapActions} from 'vuex'
 
 export default {
     data () {
@@ -35,13 +37,14 @@ export default {
         //     return this.$store.getters.count
         // },
         ...mapState(['count']),
-        ...mapGetters(['count'])
+        // ...mapGetters(['count'])
     },
     methods: {
         git () {
             console.log(this.$store.state.count);
         },
-        ...mapMutations(['add','reduce'])
+        ...mapMutations(['add','reduce']),
+        ...mapActions(['addAction','reduceAction']),
     }
 }
 </script>

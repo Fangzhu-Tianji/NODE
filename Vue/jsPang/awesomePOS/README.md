@@ -1,6 +1,6 @@
-# vuex03
+# awesome_pos
 
-> vuex03-state访问状态对象-Mutations修改状态-getters计算过滤操作（复习）-actions异步修改状态
+> 快餐管理系统
 
 ## Build Setup
 
