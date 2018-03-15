@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<div id="app">
+	<p class="title">{{p}}</p>
+	<ul>
+		<li></li>
+	</ul>
+	<button type="button" @click="onclick">按钮</button>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.5.15/vue.min.js"></script>
+<script>
+var app = new Vue({
+	data: {
+		p: '这是标题',
+		li: [
+			'list1',
+			'list2',
+			'list3',
+			'list4',
+			'list5'
+		]
+	},
+	methods: {
+		onclick: function() {
+			console.log(111)
+			// $.ajax({
+   //              type:"GET",
+   //              url:"/trade_data",
+   //              data:{},
+   //              datatype:"json",
+   //              success: function(reslue){
+   //                   this.p = resule;
+   //              }.bind(this)
+   //          })
+   			var aa = function() {
+				console.log(this.p)
+				console.log(this.$data)
+				console.log(this.$data.li)
+   			}.bind(this);
+   			aa();
+		}
+	}
+}).$mount('#app')
+</script>
+</body>
+</html>
