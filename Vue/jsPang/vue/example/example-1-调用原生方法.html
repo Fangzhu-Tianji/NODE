@@ -19,7 +19,11 @@
             message: 'Hello World'
         },
         mounted: function(){
+            var _this = this;
             $('#app').html('这是原生方法');
+            this.$nextTick(function () {
+                _this.message = '这是原生方法';
+            })
         },
         methods: {
             add: function() {
