@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父子组件间的数据传递</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <counter :count="count1" :type="'count1'" @change="handleIncrease"></counter>
+    <counter :count="count2" :type="'count2'" @change="handleIncrease"></counter>
+    <div>{{total}}</div>
+</div>
+<script>
+var counter = {
+    props: ['count', 'type'],
+    data: function () {
+        return {
+            number: this.count
+        }
+    },
+    template: `<div @click="handleClick">{{number}}</div>`,
+    methods: {
+        handleClick: function () {
+            this.number += 2;
+            this.$emit('change', 2, this.type)
+        }
+    }
+}
+var app = new Vue({
+    el: '#app',
+    data: {
+        count1: 100,
+        count2: 200
+    },
+    components: {
+        counter: counter
+    },
+    // 计算属性
+    computed: {
+        total: function () {
+            return this.count1 + this.count2;
+        }
+    },
+    methods: {
+        handleIncrease: function (num, type) {
+            this[type] += num;
+        }
+    }
+})
+</script>
+</body>
+</html>
