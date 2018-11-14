@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue中的列表过渡</title>
+  <script src="../assets/js/vue.js"></script>
+  <style>
+      /* .fade-enter-active显示时的动画 */
+      /* .fade-leave-active隐藏时的动画 */
+      .fade-enter, .fade-leave-to { opacity: 0; }
+      .fade-enter-active, .fade-leave-active { transition: opacity 2s; }
+  </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleClick">动画</button>
+        <ul>
+            <transition-group name="fade">
+                <li v-for="item in list" :key="item">{{item}}</li>
+            </transition-group>
+        </ul>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: ['李四']
+        },
+        methods: {
+            handleClick: function () {
+                this.list.push('张三');
+            }
+        }
+    })
+    </script>
+</body>
+</html>

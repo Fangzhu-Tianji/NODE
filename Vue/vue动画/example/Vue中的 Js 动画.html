@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue中的 Js 动画</title>
+  <script src="../assets/js/vue.js"></script>
+  <style>
+      /* .fade-enter-active显示时的动画 */
+      /* .fade-leave-active隐藏时的动画 */
+      .fade-enter, .fade-leave-to { opacity: 0; }
+      .fade-enter-active, .fade-leave-active { transition: opacity 3s; }
+  </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleClick">动画</button>
+        <transition
+            @before-enter="handleBeforeEnter"
+            @enter="handleEnter"
+            @after-enter="handleAfterEnter"
+        >
+            <h1 v-show="show">vue动画原理</h1>
+        </transition>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true
+        },
+        methods: {
+            handleClick: function () {
+                this.show = !this.show;
+            },
+            // 动画显示之前的事件
+            handleBeforeEnter: function (el) {
+                el.style.color = 'red';
+            },
+            // 动画显示之中的事件
+            handleEnter: function (el, done){
+                setTimeout(function(){
+                    el.style.color = 'yellow';
+                },2000)
+                setTimeout(function(){
+                    done();
+                },4000)
+            },
+            // 动画显示完成的事件
+            handleAfterEnter: function (el) {
+                el.style.color = 'blue';
+            }
+        }
+    })
+    </script>
+</body>
+</html>

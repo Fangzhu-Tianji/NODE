@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue中使用animatecss库</title>
+  <link href="https://cdn.bootcss.com/animate.css/3.7.0/animate.css" rel="stylesheet">
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleClick">动画</button>
+        <transition
+            type="animation"
+            appear
+            enter-active-class="animated shake"
+            leave-active-class="animated bounce"
+            appear-active-class="animated shake"
+        >
+            <h1 v-show="show">Vue中使用animatecss库</h1>
+        </transition>
+    </div>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true
+        },
+        methods: {
+            handleClick: function () {
+                this.show = !this.show;
+            }
+        }
+    })
+    </script>
+</body>
+</html>
