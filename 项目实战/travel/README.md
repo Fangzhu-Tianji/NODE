@@ -26,10 +26,15 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 > 注意的知识点
 
-- @/assets/styles/border.css 解决一像素边框问题
+- @/assets/styles/border.css 解决一像素边框问题(加入border-bottom样式就可以了)
 - fastclick 解决click事件300毫秒延迟
 - webpack.base.conf.js - alias 配置路径
 - npm加版本号 cnpm install vue-awesome-swiper@2.6.7 --save
 - 页面css引入方式，注意~ 例： @import '~styles/varibles.styl'
 - css scoped中想要覆盖外部的css样式加入>>> 例： .wrapper >>> .swiper-pagination-bullet-active
 - css height想要设置为宽度百分比 height:0; padding-bottom:20%;
+- flex: 1时想要溢出隐藏，加入属性min-width: 0;
+
+
+- ref的用法
+- 函数的截流
