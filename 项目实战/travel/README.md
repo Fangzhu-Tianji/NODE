@@ -34,7 +34,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - css scoped中想要覆盖外部的css样式加入>>> 例： .wrapper >>> .swiper-pagination-bullet-active
 - css height想要设置为宽度百分比 height:0; padding-bottom:20%;
 - flex: 1时想要溢出隐藏，加入属性min-width: 0;
+- props传入的参数不确定数据类型时设置为null
+- router-link添加tag默认a标签可以改变
+- window方法在所有组件里面都会生效，destroyed可以移除对应的window方法
+- scrollBehavior当切换到新路由时，页面滚到顶部(这个功能只在支持 history.pushState 的浏览器中可用)
 
 
-- ref的用法
-- 函数的截流
+- ref可以当类似于ID的用法，this.$refs.id可以获取到对应的dom
+- vuex的写法可以参考City-components-List页面(state,mutation)
