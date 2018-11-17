@@ -16,7 +16,17 @@ module.exports = {
         pathRewrite: {
           '^/api': '/static/mock'
         }
+      },
+      '/line': {
+        target: 'https://api.myjson.com',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/line': '/'
+        }
       }
+      // changeOrigin 是否跨域
+      // secure 默认情况下，不接受运行在 HTTPS 上，且使用了无效证书的后端服务器。如果你想要接受
     },
 
     // Various Dev Server settings
