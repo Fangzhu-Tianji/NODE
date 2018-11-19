@@ -5,6 +5,7 @@
     <div class="van-ellipsis">这是一段宽度限制 250px 的文字，后面的内容会省略的文字，后面的内容会省略的文字，后面的内容会省略</div>
     <van-icon name="password-view" />
     <div class="box"></div>
+    <div class="demo-css"></div>
   </div>
 </template>
 
@@ -19,8 +20,12 @@ export default {
 }
 </script>
 
-<style scoped>
-.box { width: 4rem; height: 200px; background-color: pink; margin: 0 auto; }
+<style lang="stylus" scoped>
+.box
+  width 4rem
+  height 200px
+  background-color pink
+  margin 0 auto
 </style>
 
 
