@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import One from '@/views/one/One'
 import Two from '@/views/two/Two'
 import Three from '@/views/three/Three'
+import twoContent from '@/views/two-content/twoContent'
 
 Vue.use(Router)
 
@@ -18,11 +19,17 @@ export default new Router({
     },
     {
       path: '/two',
-      component: Two
+      component: Two,
+      children: [
+        {
+          path: 'twoContent',
+          component: twoContent
+        }
+      ]
     },
     {
       path: '/three',
       component: Three
-    },
+    }
   ]
 })
