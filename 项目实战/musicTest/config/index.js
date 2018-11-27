@@ -18,6 +18,14 @@ module.exports = {
         pathRewrite: {
           '^/api': '/'
         }
+      },
+      '/easymock': {
+        target: 'https://www.easy-mock.com',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/easymock': '/'
+        }
       }
     },
 

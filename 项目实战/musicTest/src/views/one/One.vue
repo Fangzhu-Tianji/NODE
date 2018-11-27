@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>one</p>
+    <router-link to="/one/oneContent">内容</router-link>
     <div class="list" v-for="item in list" :key="item">
       <img v-lazy="item" alt="">
     </div>
