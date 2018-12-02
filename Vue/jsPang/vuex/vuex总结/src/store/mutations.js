@@ -12,6 +12,9 @@ const mutations = {
   },
   [types.SET_ACTIONS_DEMO2] (state, actionsDemo2) {
     state.actionsDemo2 = actionsDemo2
+  },
+  [types.SET_ACTIONS_ADD] (state) {
+    state.actionsAdd = state.actionsDemo1 + state.actionsDemo2
   }
 }
 

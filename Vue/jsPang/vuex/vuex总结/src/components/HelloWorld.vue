@@ -12,6 +12,7 @@
     <br>
     <br>
     <h1>mapActions</h1>
+    <h2>{{actionsAdd}}</h2>
   </div>
 </template>
 
@@ -32,17 +33,22 @@ export default {
     }
   },
   computed: {
-    ...mapState(['pageType']),
+    ...mapState(['pageType', 'actionsAdd']),
     ...mapGetters(['addition'])
   },
   mounted () {
     console.log(T.name)
+    this.selectObj({
+      add1: 333,
+      add2: 444
+    })
   },
   methods: {
     changePage () {
       this.SET_PAGE_TYPE('第一页')
     },
-    ...mapMutations(['SET_PAGE_TYPE', 'SET_DEMO_TYPE'])
+    ...mapMutations(['SET_PAGE_TYPE', 'SET_DEMO_TYPE']),
+    ...mapActions(['selectObj'])
   }
 }
 </script>
