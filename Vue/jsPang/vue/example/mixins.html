@@ -16,11 +16,17 @@
     </div>
     <script>
     var addConsole = {
+        add: function() {
+            console.log(222)
+        },
         updated: function() {
             console.log('数据花生变化' + this.num);
         }
     };
     Vue.mixin({
+        add: function() {
+            console.log(111)
+        },
         updated: function() {
             console.log('我是全局的混入');
         }
@@ -33,6 +39,7 @@
         methods: {
             add: function() {
                 this.num ++;
+                console.log(333)
             }
         },
         updated: function() {
